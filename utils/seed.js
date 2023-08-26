@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const { getRandomUser, getRandomThoughts, userData } = require('./data');
+const { getRandomThoughts, userData } = require('./data');
 
 connection.on('error', (err) => err);
 

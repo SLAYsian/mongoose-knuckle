@@ -107,23 +107,37 @@ const users = [];
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // NOTES: Get random name
-const getRandomUser = () =>
-  `${getRandomArrItem(userData)}`;
+const getRandomUser = () => {
+  return getRandomArrItem(userData).username;
+};
+
+// NOTES: Get random date
+const getRandomDate = (days) => {
+  const today = new Date();
+  const randomNumberOfDays = Math.floor(Math.random() * days);
+  const randomDate = new Date(today);
+  
+  randomDate.setDate(today.getDate() - randomNumberOfDays);
+  
+  return randomDate;
+};
 
   // NOTES: Generates random thoughts, includes reactions
   const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
       results.push({
-        createdAt: Math.random() < 0.5,
+        createdAt: getRandomDate(30),
         thoughtText: getRandomArrItem(thoughts),
-        username: getRandomUser().username,
+        username: getRandomUser(),
         // username: getRandomArrItem(usernames),
         reactions: [...getReactions(3)]
       });
     }
     return results;
   };
+
+
 
 // NOTES: Create the reactions that will be attached to thoughts
 const getReactions = (int) => {
@@ -136,11 +150,11 @@ const getReactions = (int) => {
       reactionBody: getRandomArrItem(possibleReactions),
       username: getRandomUser().username,
       // username: getRandomArrItem(usernames),
-      createdAt: Math.random() < 0.5
+      createdAt: getRandomDate(30)
     });
   }
   return results;
 };
 
 // NOTES: Exports functions for seed.js
-module.exports = { getRandomUser, getRandomThoughts, userData };
+module.exports = { getRandomThoughts, userData };
