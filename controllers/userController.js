@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 module.exports = {
   // SECTION: GET ALL USERS
-  async getUsers(req, res) {
+  async getAllUsers(req, res) {
     try {
       const users = await User.find();
       res.json(users);
@@ -105,5 +105,5 @@ module.exports = {
     } catch (err) {
       res.status(500).json(err);
     }
-  },
+  }
 };
