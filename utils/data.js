@@ -104,11 +104,33 @@ const possibleReactions = [
 const users = [];
 
 // NOTES: Get random array
-const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomArrItems = (arr, num) => arr[Math.floor(Math.random() * arr.length)];
 
 // NOTES: Get random name
 const getRandomUser = () => {
-  return getRandomArrItem(userData).username;
+  return getRandomArrItems(userData, 1).username;
+};
+
+// const getRandomFriends = (int) => {
+//   let results = [];
+//   for (let i = 0; i < int; i++) {
+//     results.push({
+//       friend: getRandomUser()
+//     });
+//   }
+// return results;
+// };
+
+const getRandomFriends = (currentUserId, int) => {
+  let results = [];
+  let potentialFriends = userData.filter(user => user.username !== currentUserId);
+
+  for (let i = 0; i < int; i++) {
+    const randomFriend = getRandomArrItems(potentialFriends, 1);
+    results.push(randomFriend.username);
+    potentialFriends = potentialFriends.filter(user => user.username !== randomFriend.username);
+  }
+  return results;
 };
 
 // NOTES: Get random date
@@ -128,7 +150,7 @@ const getRandomDate = (days) => {
     for (let i = 0; i < int; i++) {
       results.push({
         createdAt: getRandomDate(30),
-        thoughtText: getRandomArrItem(thoughts),
+        thoughtText: getRandomArrItems(thoughts, 2),
         username: getRandomUser(),
         // username: getRandomArrItem(usernames),
         reactions: [...getReactions(3)]
@@ -142,13 +164,13 @@ const getRandomDate = (days) => {
 // NOTES: Create the reactions that will be attached to thoughts
 const getReactions = (int) => {
   if (int === 1) {
-    return getRandomArrItem(possibleReactions);
+    return getRandomArrItems(possibleReactions, 3);
   }
   const results = [];
   for (let i = 0; i < int; i++) {
     results.push({
-      reactionBody: getRandomArrItem(possibleReactions),
-      username: getRandomUser().username,
+      reactionBody: getRandomArrItems(possibleReactions, 3),
+      username: getRandomUser(),
       // username: getRandomArrItem(usernames),
       createdAt: getRandomDate(30)
     });
@@ -157,4 +179,4 @@ const getReactions = (int) => {
 };
 
 // NOTES: Exports functions for seed.js
-module.exports = { getRandomThoughts, userData };
+module.exports = { getRandomThoughts, userData, getRandomArrItems, getRandomUser, getRandomFriends };
