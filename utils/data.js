@@ -1,19 +1,60 @@
-const usernames = [
-  'Ant-Man',
-  'Batman',
-  'Beyonce',
-  'Black Panther',
-  'Black Widow',
-  'Blue Ivy',
-  'Captain Marvel',
-  'Doctor Strange',
-  'Iron Man',
-  'Loki',
-  'Mary Jane',
-  'Okoye',
-  'Ramonda',
-  'Shang-Chi',
-  'Wanda'
+const userData = [
+  {
+    username: 'Ant_Man',
+    email: 'antman@email.com'
+  },
+  {
+    username: 'Batman',
+    email: 'batman@email.com'
+  },
+  {
+    username: 'Beyonce',
+    email: 'beyonce@email.com'
+  },
+  {
+    username: 'Black_Panther',
+    email: 'blackpanther@email.com'
+  },
+  {
+    username: 'Black_Widow',
+    email: 'blackwidow@email.com'
+  },
+  {
+    username: 'Blue_Ivy',
+    email: 'blueivy@email.com'
+  },
+  {
+    username: 'Captain_Marvel',
+    email: 'captainmarvell@email.com'
+  },
+  {
+    username: 'Doctor-Strange',
+    email: 'doctorstrange@email.com'
+  },
+  {
+    username: 'Iron_Man',
+    email: 'ironman@email.com'
+  },
+  {
+    username: 'Loki',
+    email: 'loki@email.com'
+  },
+  {
+    username: 'Mary_Jane',
+    email: 'maryjane@email.com'
+  },
+  {
+    username: 'Okoye',
+    email: 'okoye@email.com'
+  },
+  {
+    username: 'Shang_Chi',
+    email: 'shangchi@email.com'
+  },
+  {
+    username: 'Scarlet_Witch',
+    email: 'scarletwitch@email.com'
+  }
 ];
 
 const thoughts = [
@@ -67,7 +108,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // NOTES: Get random name
 const getRandomUser = () =>
-  `${getRandomArrItem(usernames)}`;
+  `${getRandomArrItem(userData)}`;
 
   // NOTES: Generates random thoughts, includes reactions
   const getRandomThoughts = (int) => {
@@ -76,7 +117,7 @@ const getRandomUser = () =>
       results.push({
         createdAt: Math.random() < 0.5,
         thoughtText: getRandomArrItem(thoughts),
-        username: getRandomUser(),
+        username: getRandomUser().username,
         // username: getRandomArrItem(usernames),
         reactions: [...getReactions(3)]
       });
@@ -93,7 +134,7 @@ const getReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reactionBody: getRandomArrItem(possibleReactions),
-      usernname: getRandomUser(),
+      username: getRandomUser().username,
       // username: getRandomArrItem(usernames),
       createdAt: Math.random() < 0.5
     });
@@ -102,4 +143,4 @@ const getReactions = (int) => {
 };
 
 // NOTES: Exports functions for seed.js
-module.exports = { getRandomUser, getRandomThoughts }
+module.exports = { getRandomUser, getRandomThoughts, userData };
