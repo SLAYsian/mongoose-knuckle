@@ -28,16 +28,16 @@
 ![view one user](./images/find-one-user.png)
 #### Create POST route to CREATE a thought, user, reaction, or friend. sending the data in JSON format.<br/><br/>
 ![create reaction](./images/add-reaction.png)<br/><br/>
-#### Create PUT route to UPDATE a user or thought, adding the desired /`id` at the end of the url request. Example: `localhost:3001/api/products/64eab0008c1a2a48c17eb732` Sending the updated data in JSON format.<br/><br/>![update product](./images/update-product.png)<br/><br/>
+#### Create PUT route to UPDATE a user or thought, adding the desired /`id` at the end of the url request. Example: `localhost:3001/api/products/64eab0008c1a2a48c17eb732` Sending the updated data in JSON format.<br/><br/>![update user](./images/update-user.png)<br/><br/>
 
-#### Create DELETE route to DELETE a friend, user, thought, or reactionat the end of the url request.<br/><br/>![delete user](./images/delete-user.png)<br/><br/>
+#### Create DELETE route to REMOVE a friend, user, thought, or reaction.<br/><br/>![delete user](./images/delete-user.png)<br/><br/>
 
 
 > ## REFERENCES
 - UDEMY Jonas Schmedtmann courses (https://codingheroes.io/resources/)
 - UDEMY Dr Angela Yu (https://appbrewery.com/)
 - W3Schools (https://www.w3schools.com/)
-- UConn Coding Bootcamp - Module 14 NoSQL Lessons
+- UConn Coding Bootcamp - Module 18 NoSQL Lessons
 
 > ## LICENSE
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)<br/>
