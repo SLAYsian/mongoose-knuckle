@@ -4,10 +4,13 @@ module.exports = {
   // SECTION: GET ALL USERS
   async getAllUsers(req, res) {
     try {
-      const users = await User.find();
+      const users = await User.find().populate('friends thoughts');
+      // const users = await User.find();
+      console.log(users);
       res.json(users);
     } catch (err) {
-      res.status(500).json(err);
+      console.error(err);
+      res.status(500).json({ message: "Internal Server Error", error: err.message });
     }
   },
   // SECTION: GET ONE USER

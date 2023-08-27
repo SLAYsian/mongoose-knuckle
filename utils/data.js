@@ -105,32 +105,25 @@ const users = [];
 
 // NOTES: Get random array
 const getRandomArrItems = (arr, num) => arr[Math.floor(Math.random() * arr.length)];
-
+// const getRandomArrItems = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  
 // NOTES: Get random name
 const getRandomUser = () => {
   return getRandomArrItems(userData, 1).username;
 };
 
-// const getRandomFriends = (int) => {
-//   let results = [];
-//   for (let i = 0; i < int; i++) {
-//     results.push({
-//       friend: getRandomUser()
-//     });
-//   }
-// return results;
-// };
 
-const getRandomFriends = (currentUserId, int) => {
+  const getRandomFriends = (currentUserId, int) => {
   let results = [];
   let potentialFriends = userData.filter(user => user.username !== currentUserId);
 
   for (let i = 0; i < int; i++) {
     const randomFriend = getRandomArrItems(potentialFriends, 1);
-    results.push(randomFriend.username);
-    potentialFriends = potentialFriends.filter(user => user.username !== randomFriend.username);
-  }
-  return results;
+    // const randomFriend = getRandomArrItems(potentialFriends);
+          results.push(randomFriend.username);
+      potentialFriends = potentialFriends.filter(user => user.username !== randomFriend.username);
+    }
+    return results;
 };
 
 // NOTES: Get random date
@@ -152,7 +145,6 @@ const getRandomDate = (days) => {
         createdAt: getRandomDate(30),
         thoughtText: getRandomArrItems(thoughts, 2),
         username: getRandomUser(),
-        // username: getRandomArrItem(usernames),
         reactions: [...getReactions(3)]
       });
     }
@@ -171,7 +163,6 @@ const getReactions = (int) => {
     results.push({
       reactionBody: getRandomArrItems(possibleReactions, 3),
       username: getRandomUser(),
-      // username: getRandomArrItem(usernames),
       createdAt: getRandomDate(30)
     });
   }
