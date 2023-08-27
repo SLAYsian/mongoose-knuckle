@@ -7,14 +7,14 @@ const userData = [
     username: 'Batman',
     email: 'batman@email.com'
   },
-  {
-    username: 'Beyonce',
-    email: 'beyonce@email.com'
-  },
-  {
-    username: 'Black_Panther',
-    email: 'blackpanther@email.com'
-  },
+  // {
+  //   username: 'Beyonce',
+  //   email: 'beyonce@email.com'
+  // },
+  // {
+  //   username: 'Black_Panther',
+  //   email: 'blackpanther@email.com'
+  // },
   {
     username: 'Black_Widow',
     email: 'blackwidow@email.com'
@@ -58,15 +58,15 @@ const userData = [
 ];
 
 const thoughts = [
-  'I\'m one of one, I\'m number one, I\'m the only one',
+  // 'I\'m one of one, I\'m number one, I\'m the only one',
   'Category, bad b*tch, I\'m the bar',
   'You must not know bout me',
   'I mopped the floor now watch me sweep up these Ms',
   'I will always be the best thing you never had',
   'Comfortable in my skin, cozy with who I am',
-  'I\'m on that new vibration',
+  // 'I\'m on that new vibration',
   'Promise this my mood 4 eva',
-  'I dream it, I work hard, I grind til I own it',
+  // 'I dream it, I work hard, I grind til I own it',
   'Always stay gracious, best revenge is your paper',
   'I sneezed on the beat and the beat got sicker',
   'This goes out to all the women, gettin it in, you on your grind',
@@ -83,7 +83,7 @@ const possibleReactions = [
   'Cozy',
   'Cuff it',
   'ENERGY',
-  'You\'re that girl',
+  // 'You\'re that girl',
   'XO',
   'Jealous',
   'Shining',

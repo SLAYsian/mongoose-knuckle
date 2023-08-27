@@ -4,9 +4,9 @@ module.exports = {
   // SECTION: GET ALL USERS
   async getAllUsers(req, res) {
     try {
-      const users = await User.find().populate('friends thoughts');
-      // const users = await User.find();
-      console.log(users);
+      // const users = await User.find().populate('friends thoughts');
+      const users = await User.find();
+      // console.log(users);
       res.json(users);
     } catch (err) {
       console.error(err);
@@ -69,8 +69,8 @@ module.exports = {
   },
   // SECTION: ADD FRIEND
   async addFriend (req, res) {
-    console.log('You are adding a friend');
-    console.log(req.body);
+    // console.log('You are adding a friend');
+    // console.log(req.body);
     try {
       const user = await User.findOne( { _id: req.params.userId} );
       if (!user) {
@@ -80,12 +80,14 @@ module.exports = {
         { _id: req.params.friendId }, 
         { $addToSet: { friends: user._id} }, 
         { runValidators: true, new: true } 
-        );
+        ).populate({ path: 'friends', select: 'username' });
+        // );
         if (!friend) {
           return res.status(404).json({ message: `No user with the ID: ${req.params.friendId} to add as friend!` });
         }
         res.json(friend);
     } catch (err) {
+      console.error("Error in addFriend:", err.message);
       res.status(500).json(err);
     }
   },

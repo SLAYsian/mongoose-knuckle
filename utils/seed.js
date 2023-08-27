@@ -17,11 +17,11 @@ connection.once('open', async () => {
     await connection.dropCollection('users');
   }
   // NOTES: Insert Users and Thoughts
-  const thoughts = getRandomThoughts(14);
+  const thoughts = getRandomThoughts(10);
   await Thought.collection.insertMany(thoughts);
 
   const users = [];
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 11; i++) {
     const user = getRandomArrItems(userData, 1);
     const email = user.email;
     const randomThoughts = getRandomThoughts(2)
