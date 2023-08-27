@@ -20,6 +20,8 @@
 
 > ## USAGE
 
+https://github.com/SLAYsian/mongoose-knuckle/assets/127693250/f42ae747-966f-4853-8a98-22cbd5832d67
+
 #### Install all npm packages<br/>
 #### Start the server by entering `npm start` in your command line <br/>
 #### Using Insomnia, send GET routes at `localhost:3001/api/users` to VIEW ALL USERS, `localhost:3001/api/thoughts` to VIEW ALL THOUGHTS<br/><br/>
